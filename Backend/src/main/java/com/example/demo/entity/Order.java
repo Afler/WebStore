@@ -5,6 +5,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 
 @Entity
 @Data
@@ -19,8 +22,10 @@ public class Order {
     @ManyToOne
     @JoinTable(name = "user_orders", joinColumns = @JoinColumn(name = "order_id"))
     private User user;
-    @ManyToOne
-    private Product product;
-    private int quantity;
+    @OneToMany(mappedBy = "order", cascade = CascadeType.PERSIST)
+    private final List<OrderProduct> product = new LinkedList<>();
+    private Date date;
     private double totalPrice;
+    private int status;
+
 }
