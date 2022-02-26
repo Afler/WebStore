@@ -1,6 +1,7 @@
 package com.example.demo.entity;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -10,6 +11,7 @@ import java.io.Serializable;
 @Table(name = "order_products")
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 public class OrderProduct implements Serializable {
 
     @Id

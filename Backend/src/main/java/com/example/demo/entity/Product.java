@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
@@ -20,7 +21,7 @@ public class Product {
     private Long id;
     private String name;
     @OneToMany(mappedBy = "product", cascade = CascadeType.PERSIST)
-    private final List<OrderProduct> product = new LinkedList<>();
+    private final List<OrderProduct> product = new ArrayList<>();
     private double cost;
     private int quantity;
     @Lob
