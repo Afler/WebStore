@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -21,5 +22,5 @@ public class User {
     private String username;
     private String password;
     @OneToMany(mappedBy = "user")
-    private final List<Order> orders = new LinkedList<>();
+    private final List<Order> orders = new ArrayList<>();
 }
