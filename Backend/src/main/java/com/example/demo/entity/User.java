@@ -5,8 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.LinkedList;
+import java.util.List;
 
 @Entity
 @Data
@@ -21,5 +21,5 @@ public class User {
     private String username;
     private String password;
     @OneToMany(mappedBy = "user")
-    private final Set<Order> orders = new HashSet<>();
+    private final List<Order> orders = new LinkedList<>();
 }
