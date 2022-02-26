@@ -8,3 +8,9 @@ spring:
     hibernate:
       ddl-auto: create
     show-sql: true
+  security:
+    oauth2:
+      client:
+        registration:
+          google.client-id: 1032723879805-m6plpl71f8b3esqnnpuc3cikik8470ij.apps.googleusercontent.com
+          google.client-secret: aXUae1G-7E1JGWbbPJrgxlC0
