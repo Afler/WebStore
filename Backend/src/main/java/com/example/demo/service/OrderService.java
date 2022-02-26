@@ -11,5 +11,5 @@ public interface OrderService {
 
     Order saveOrder(Order order);
 
-    Order createNewOrder(Date date, double totalPrice, int status, User user);
+    Order createNewOrder(Date date, double totalPrice, int status, User user, List<OrderProduct> orderProducts);
 }

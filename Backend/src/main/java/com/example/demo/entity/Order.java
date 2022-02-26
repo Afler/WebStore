@@ -1,12 +1,13 @@
 package com.example.demo.entity;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.LinkedList;
 import java.util.List;
 
 @Entity
@@ -14,6 +15,7 @@ import java.util.List;
 @Table(name = "order_table")
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Order {
 
     @Id
@@ -23,7 +25,7 @@ public class Order {
     @JoinTable(name = "user_orders", joinColumns = @JoinColumn(name = "order_id"))
     private User user;
     @OneToMany(mappedBy = "order", cascade = CascadeType.PERSIST)
-    private final List<OrderProduct> product = new LinkedList<>();
+    private List<OrderProduct> products = new ArrayList<>();
     private Date date;
     private double totalPrice;
     private int status;
