@@ -3,14 +3,17 @@ package com.example.demo.ServiceImpl;
 import com.example.demo.Service.ProductService;
 import com.example.demo.entity.Product;
 import com.example.demo.repository.ProductRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ProductServiceImpl implements ProductService {
 
-    @Autowired
-    private ProductRepository productRepository;
+    private final ProductRepository productRepository;
+
+    public ProductServiceImpl(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
+
 
     @Override
     public Product saveProduct(Product product) {
