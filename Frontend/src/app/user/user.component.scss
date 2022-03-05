@@ -1,0 +1,43 @@
+
+.user-image {
+  width: 20%;
+  margin-right: 40px;
+}
+
+.personal-data {
+  padding: 20px;
+  border: 2px solid #000000;
+  border-radius: 8px;
+}
+
+.fio-data {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.fio-list {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.fio-item {
+  line-height: 40px;
+  padding: 3px;
+  font-size: 20px;
+}
+.fio-item:last-child {
+  margin-bottom: 0px;
+}
+.filer-text{
+  color: #4700e0;
+  margin-right: 10px;
+}
+
+.adress-item {
+  padding: 3px;
+  font-size: 20px;
+  line-height: 40px;
+}

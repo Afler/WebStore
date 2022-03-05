@@ -1,0 +1,23 @@
+<div class="cabinet-container">
+  <div class="personal-data">
+    <div class="fio-data">
+      <img [src]="users[0].image" class="user-image">
+      <div class="cabinet-fio">
+        <ul class="fio-list">
+          <li class="fio-item"><span class="filer-text">Фамилия:</span> {{users[0].lastName}}</li>
+          <li class="fio-item"><span class="filer-text">Имя:</span> {{users[0].firstName}}</li>
+          <li class="fio-item"><span class="filer-text">Отчество:</span> {{users[0].patronymicName}}</li>
+          <li class="fio-item"><span class="filer-text">Возраст:</span> {{users[0].age}}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cabinet-adress">
+      <ul class="adress-list">
+        <li class="adress-item"><span class="filer-text">Страна:</span>{{users[0].country}}</li>
+        <li class="adress-item"><span class="filer-text">Город:</span>{{users[0].city}}</li>
+        <li class="adress-item"><span class="filer-text">Адрес:</span>{{users[0].adress}}</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
