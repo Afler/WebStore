@@ -5,7 +5,6 @@ export interface User {
   image: string
   firstName: string
   lastName: string
-  patronymicName: string
   age: number
   country: string
   city: string
@@ -26,7 +25,6 @@ export class UserComponent implements OnInit {
       image: 'https://i.pinimg.com/originals/a8/82/07/a88207952a461e666d3737f2e9d5a2a7.jpg',
       firstName: 'Мурзик',
       lastName: 'Котов',
-      patronymicName: 'Барсикович',
       age: 25,
       country: 'Россия',
       city: 'Москва',
