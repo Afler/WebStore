@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ProductsService} from "../products.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-basket',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BasketComponent implements OnInit {
 
-  constructor() { }
+  empty: boolean = this.productsService.products.length === 0;
+
+  constructor(public productsService: ProductsService, private router: Router) {
+
+  }
 
   ngOnInit(): void {
+    console.log(this.empty)
+  }
+  purchase() {
+
   }
 
 }
