@@ -1,0 +1,42 @@
+<h1 class="title">Редактирование товара</h1>
+
+<div>
+  <label>
+    <input
+      type="file"
+      class="input-file"
+      placeholder="Картинка"
+      [(ngModel)]="image"
+    ><span class="btn-add-image btn">Добавить изображение</span></label>
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Наименование"
+    [(ngModel)]="name"
+  >
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Описание"
+    [(ngModel)]="description"
+  >
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Цена"
+    [(ngModel)]="price"
+  >
+
+</div>
+
+<div class="product">
+  <img src="{{product.image}}" alt="Картинка" class="product-image">
+  <div class="product-elements">
+    <h2 class="product-title">{{product.name}}</h2>
+    <p class="product-description">{{product.description}}</p>
+
+    <p class="product-price">{{product.price}} Р</p>
+    <button href="#" class="btn btn-save" (click)="updateProduct()">сохранить</button>
+
+  </div>
+</div>

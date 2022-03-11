@@ -1,0 +1,29 @@
+<div>
+  <label>
+  <input
+    type="file"
+    class="input-file"
+    placeholder="Картинка"
+    [(ngModel)]="image"
+  ><span class="btn-add-image btn">Добавить изображение</span></label>
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Наименование"
+    [(ngModel)]="name"
+  >
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Описание"
+    [(ngModel)]="description"
+  >
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Цена"
+    [(ngModel)]="price"
+  >
+
+  <button class="btn" (click)="addProduct()">Добавить товар</button>
+</div>

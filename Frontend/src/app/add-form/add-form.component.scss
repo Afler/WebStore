@@ -1,0 +1,15 @@
+.btn-add-image {
+  margin-bottom: 10px;
+  background-color: #333333;
+}
+.btn-add-image:hover {
+  background-color: #5d5c5c;
+}
+.input-file {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
