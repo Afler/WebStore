@@ -1,0 +1,1 @@
+call docker run --name web-store-db -d --restart=always -p 5432:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=web-store postgres:14
