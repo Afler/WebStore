@@ -33,9 +33,9 @@ export class ProductComponent implements OnInit {
         if(this.name != '')
           this.product.name = this.name
         if(this.description != '')
-        this.product.description = this.description
+          this.product.description = this.description
         if(this.price != '')
-        this.product.price = this.price
+          this.product.price = this.price
       }
     }
 
