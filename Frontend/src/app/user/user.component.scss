@@ -40,8 +40,15 @@
   font-size: 20px;
   line-height: 40px;
 }
-
+.btns-user-page {
+  display: flex;
+  flex-direction: column;
+}
 .btn-edit-user {
-  float: right;
+  align-self: flex-end;
+  margin-top: 20px;
+}
+.btn-admin-add-product-button {
+  align-self: flex-end;
   margin-top: 20px;
 }

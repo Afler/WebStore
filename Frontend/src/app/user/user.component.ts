@@ -9,6 +9,7 @@ export interface User {
   country: string
   city: string
   adress: string
+  admin: boolean
 
 }
 
@@ -28,7 +29,8 @@ export class UserComponent implements OnInit {
       age: 25,
       country: 'Россия',
       city: 'Москва',
-      adress: 'Мкад, объездная канализация, люк 48, 4-тый поворот на лево'},
+      adress: 'Мкад, объездная канализация, люк 48, 4-тый поворот на лево',
+      admin: true}
   ]
 
 
