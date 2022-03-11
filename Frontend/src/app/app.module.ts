@@ -12,6 +12,7 @@ import {AppRoutingModule} from "./app-routing.module";
 import { UserComponent } from './user/user.component';
 import { BasketComponent } from './basket/basket.component';
 import { ProductComponent } from './product/product.component';
+import { AddProductComponent } from './add-product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ProductComponent } from './product/product.component';
     HomeComponent,
     UserComponent,
     BasketComponent,
-    ProductComponent
+    ProductComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,
