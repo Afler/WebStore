@@ -1,5 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {Product} from "../products.service";
+import {Product, ProductsService} from "../products.service";
 
 
 
@@ -18,7 +18,7 @@ export class AddFormComponent implements OnInit {
   image = ''
   id = 2
 
-  constructor() { }
+  constructor(private service: ProductsService) { }
 
   ngOnInit() {
   }
@@ -26,7 +26,11 @@ export class AddFormComponent implements OnInit {
   addImage() {
   }
 
-  addProduct() {
+  addProduct(){
+
+  }
+
+  addProduct2() {
     if (this.name.trim() && this.description.trim() && this.price.trim() && this.image.trim()) {
       const product: Product = {
         id: this.id,
