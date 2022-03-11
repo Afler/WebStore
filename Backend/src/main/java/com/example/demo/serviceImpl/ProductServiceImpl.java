@@ -3,13 +3,17 @@ package com.example.demo.serviceImpl;
 import com.example.demo.service.ProductService;
 import com.example.demo.entity.Product;
 import com.example.demo.repository.ProductRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ProductServiceImpl implements ProductService {
 
     private final ProductRepository productRepository;
 
+    @Autowired
     public ProductServiceImpl(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }
@@ -28,5 +32,10 @@ public class ProductServiceImpl implements ProductService {
         product.setQuantity(quantity);
         product.setImage(image);
         return product;
+    }
+
+    @Override
+    public List<Product> getProductsByCategory(String category) {
+        return productRepository.findByCategory(category);
     }
 }
