@@ -26,4 +26,6 @@ public class Product {
     private int quantity;
     @Lob
     private String image;
+
+    private String category;
 }
