@@ -27,10 +27,14 @@ export class ProductComponent implements OnInit {
   }
 
   updateProduct() {
-    if (this.name.trim() && this.description.trim() && this.price.trim() && this.image.trim()) {
-        this.product.image = this.image
-        this.product.name = this.name
+    if (this.name.trim() || this.description.trim() || this.price.trim() || this.image.trim()) {
+        if(this.image != '')
+          this.product.image = this.image
+        if(this.name != '')
+          this.product.name = this.name
+        if(this.description != '')
         this.product.description = this.description
+        if(this.price != '')
         this.product.price = this.price
       }
     }
