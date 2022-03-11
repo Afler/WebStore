@@ -13,7 +13,6 @@ export interface User {
 
 }
 
-
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
