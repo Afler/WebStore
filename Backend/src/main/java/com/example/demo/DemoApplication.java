@@ -11,12 +11,27 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.ArrayList;
 import java.util.Date;
 
 @SpringBootApplication
 public class DemoApplication {
+    private static final String[] ALLOWED_CORS_SOURCES = {
+            "*"
+    };
+
+    @Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurer() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/**").allowedOrigins(ALLOWED_CORS_SOURCES);
+            }
+        };
+    }
 
     @Bean
     CommandLineRunner run(OrderRepository orderRepository,
