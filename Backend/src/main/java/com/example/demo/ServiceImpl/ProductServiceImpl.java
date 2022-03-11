@@ -1,11 +1,9 @@
-package com.example.demo.serviceImpl;
+package com.example.demo.ServiceImpl;
 
+import com.example.demo.Service.ProductService;
 import com.example.demo.entity.Product;
 import com.example.demo.repository.ProductRepository;
-import com.example.demo.service.ProductService;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -30,10 +28,5 @@ public class ProductServiceImpl implements ProductService {
         product.setQuantity(quantity);
         product.setImage(image);
         return product;
-    }
-
-    @Override
-    public List<Product> getProductsByCategory(String category) {
-        return productRepository.findByCategory(category);
     }
 }
