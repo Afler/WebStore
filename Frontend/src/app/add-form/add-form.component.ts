@@ -1,6 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {Product} from "../products.service";
-
+import {Product, ProductsService} from "../products.service";
 
 
 @Component({
@@ -14,11 +13,12 @@ export class AddFormComponent implements OnInit {
 
   name = ''
   description = ''
-  price = ''
+  cost = ''
   image = ''
   id = 2
 
-  constructor() { }
+  constructor(private productService: ProductsService) {
+  }
 
   ngOnInit() {
   }
@@ -27,19 +27,30 @@ export class AddFormComponent implements OnInit {
   }
 
   addProduct() {
-    if (this.name.trim() && this.description.trim() && this.price.trim() && this.image.trim()) {
+    if (this.name.trim() && this.description.trim() && this.cost.trim() && this.image.trim()) {
       const product: Product = {
         id: this.id,
         image: this.image,
         name: this.name,
         description: this.description,
-        price: this.price
+        cost: this.cost
       }
       this.onAdd.emit(product)
-      this.name = this.description = this.price = this.image =''
-      this.id+=1
+      this.name = this.description = this.cost = this.image = ''
+      this.id += 1
     }
   }
 
-
+  addProduct2() {
+    console.log("check1");
+    const product: Product = {
+      id: this.id,
+      image: this.image,
+      name: this.name,
+      description: this.description,
+      cost: this.cost
+    }
+    let resp = this.productService.saveProduct(product);
+    resp.subscribe(data => {console.log(data)})
+  }
 }
