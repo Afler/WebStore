@@ -12,7 +12,7 @@ export class ProductComponent implements OnInit {
   product!: Product
   name = ''
   description = ''
-  price = ''
+  cost = ''
   image = ''
 
   constructor(
@@ -27,15 +27,15 @@ export class ProductComponent implements OnInit {
   }
 
   updateProduct() {
-    if (this.name.trim() || this.description.trim() || this.price.trim() || this.image.trim()) {
+    if (this.name.trim() || this.description.trim() || this.cost.trim() || this.image.trim()) {
         if(this.image != '')
           this.product.image = this.image
         if(this.name != '')
           this.product.name = this.name
         if(this.description != '')
           this.product.description = this.description
-        if(this.price != '')
-          this.product.cost = this.price
+        if(this.cost != '')
+          this.product.cost = this.cost
       }
     }
 

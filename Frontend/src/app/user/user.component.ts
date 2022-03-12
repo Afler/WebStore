@@ -1,17 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-export interface User {
-  id?: number
-  image: string
-  firstName: string
-  lastName: string
-  age: number
-  country: string
-  city: string
-  adress: string
-  admin: boolean
-
-}
+import {UsersService} from "../users.service";
 
 @Component({
   selector: 'app-user',
@@ -20,32 +8,9 @@ export interface User {
 })
 export class UserComponent implements OnInit {
 
-  users: User[] = [
-    {id: 1,
-      image: 'https://i.pinimg.com/originals/a8/82/07/a88207952a461e666d3737f2e9d5a2a7.jpg',
-      firstName: 'Мурзик',
-      lastName: 'Котов',
-      age: 25,
-      country: 'Россия',
-      city: 'Москва',
-      adress: 'Мкад, объездная канализация, люк 48, 4-тый поворот на лево',
-      admin: true}
-  ]
-
-
-  constructor() { }
+  constructor(public usersService: UsersService) { }
 
   ngOnInit(): void {
-  }
-
-  addUser(user: User) {
-    this.users.unshift(user) // добавляем в начало списка
-  }
-  getUser(){
-
-  }
-  setUser(){
-
   }
 
 }
