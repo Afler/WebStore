@@ -2,25 +2,25 @@
 <div class="cabinet-container">
   <div class="personal-data">
     <div class="fio-data">
-      <img [src]="users[0].image" class="user-image">
+      <img [src]="usersService.users[0].image" class="user-image">
       <div class="cabinet-fio">
         <ul class="fio-list">
-          <li class="fio-item"><span class="filer-text">Фамилия:</span> {{users[0].lastName}}</li>
-          <li class="fio-item"><span class="filer-text">Имя:</span> {{users[0].firstName}}</li>
-          <li class="fio-item"><span class="filer-text">Возраст:</span> {{users[0].age}}</li>
+          <li class="fio-item"><span class="filer-text">Фамилия:</span> {{usersService.users[0].lastName}}</li>
+          <li class="fio-item"><span class="filer-text">Имя:</span> {{usersService.users[0].firstName}}</li>
+          <li class="fio-item"><span class="filer-text">Возраст:</span> {{usersService.users[0].age}}</li>
         </ul>
       </div>
     </div>
     <div class="cabinet-adress">
       <ul class="adress-list">
-        <li class="adress-item"><span class="filer-text">Страна:</span>{{users[0].country}}</li>
-        <li class="adress-item"><span class="filer-text">Город:</span>{{users[0].city}}</li>
-        <li class="adress-item"><span class="filer-text">Адрес:</span>{{users[0].adress}}</li>
+        <li class="adress-item"><span class="filer-text">Страна:</span>{{usersService.users[0].country}}</li>
+        <li class="adress-item"><span class="filer-text">Город:</span>{{usersService.users[0].city}}</li>
+        <li class="adress-item"><span class="filer-text">Адрес:</span>{{usersService.users[0].adress}}</li>
       </ul>
     </div>
   </div>
   <div class="btns-user-page">
     <button class="btn btn-edit-user">Редактировать профиль</button>
-    <button *ngIf="users[0].admin" [routerLink]="['/addProduct']" class="btn btn-admin-add-product-button">Добавить товар</button>
+    <button *ngIf="usersService.users[0].admin" [routerLink]="['/addProduct']" class="btn btn-admin-add-product-button">Добавить товар</button>
   </div>
 </div>

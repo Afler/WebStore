@@ -2,10 +2,11 @@
   <div class="product" *ngFor="let p of productsService.products">
       <img [src]="p.image" alt="Картинка" class="product-image">
     <div class="product-elements">
-      <h2 class="product-title"><a [routerLink]="['/products', p.id]">{{p.name}}</a></h2>
+      <h2 class="product-title">{{p.name}}</h2>
       <p class="product-description">{{p.description}}</p>
       <div class="purchase-elements">
-        <p class="product-price">{{p.price}} Р</p>
+        <button *ngIf="usersService.users[0].admin" [routerLink]="['/products', p.id]" href="#" class="btn btn-edit">Редактировать</button>
+        <p class="product-price">{{p.cost}} Р</p>
         <button href="#" class="btn btn-buy">Купить</button>
       </div>
     </div>
