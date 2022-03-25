@@ -20,8 +20,8 @@ public class Basket {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    @OneToOne
-    @JoinTable(name = "user_baskets", joinColumns = @JoinColumn(name = "user_id"))
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
     private User user;
     @OneToMany(mappedBy = "order", cascade = CascadeType.PERSIST)
     private List<OrderProduct> products = new ArrayList<>();

@@ -6,7 +6,7 @@ import com.example.demo.serviceImpl.BasketServiceImpl;
 import com.example.demo.serviceImpl.ProductServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.oauth2.core.user.OAuth2User;
+import com.example.demo.entity.User;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,7 +33,7 @@ public class ProductController {
     }
 
     @PostMapping("/addProduct")
-    public void addProductToBasket(@AuthenticationPrincipal OAuth2User user, @RequestBody Product product,
+    public void addProductToBasket(User user, @RequestBody Product product,
                                    @RequestBody int amount) {
         basketService.addProductToBasket(user, product, amount);
     }

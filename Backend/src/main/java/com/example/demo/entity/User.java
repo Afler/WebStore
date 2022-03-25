@@ -23,6 +23,6 @@ public class User {
     @OneToMany(mappedBy = "user")
     private final List<Order> orders = new ArrayList<>();
     @OneToOne
-    @JoinTable(name = "user_baskets", joinColumns = @JoinColumn(name = "basket_id"))
+    @JoinColumn(name = "basket_id", referencedColumnName = "id")
     private Basket basket;
 }

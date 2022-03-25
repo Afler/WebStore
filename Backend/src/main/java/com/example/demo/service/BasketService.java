@@ -1,9 +1,11 @@
 package com.example.demo.service;
 
 import com.example.demo.entity.Product;
-import org.springframework.security.oauth2.core.user.OAuth2User;
+import com.example.demo.entity.User;
 
 public interface BasketService {
 
-    boolean addProductToBasket(OAuth2User user, Product product, int amount);
+    boolean addProductToBasket(User user, Product product, int amount);
+    boolean deleteProductFromBasket(User user, Product product, int amount);
+    boolean basketToOrder(User user);
 }
