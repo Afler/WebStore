@@ -38,7 +38,7 @@ public class DemoApplication {
                           UserRepository userRepository,
                           ProductRepository productRepository) {
         return args -> {
-            User user = new User(null, "user1", "pass1");
+            User user = new User(null, "user1", "pass1", null);
             userRepository.save(user);
 
             Product product1 = new Product(null, "product1", 100, 10, null, "Одежда");

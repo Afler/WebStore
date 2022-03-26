@@ -1,6 +1,7 @@
 package com.example.demo.entity;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,19 +11,18 @@ import java.util.List;
 
 @Entity
 @Data
-@Table(name = "user_table")
+@Table(name = "basket_table")
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+@Builder
+public class Basket {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    private String username;
-    private String password;
-    @OneToMany(mappedBy = "user")
-    private final List<Order> orders = new ArrayList<>();
-    @OneToOne
-    @JoinColumn(name = "basket_id", referencedColumnName = "id")
-    private Basket basket;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    private User user;
+    @OneToMany(mappedBy = "order", cascade = CascadeType.PERSIST)
+    private List<OrderProduct> products = new ArrayList<>();
 }
