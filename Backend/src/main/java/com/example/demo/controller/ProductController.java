@@ -6,9 +6,9 @@ import com.example.demo.serviceImpl.BasketServiceImpl;
 import com.example.demo.serviceImpl.ProductServiceImpl;
 import com.example.demo.serviceImpl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/product")
@@ -40,8 +40,8 @@ public class ProductController {
         basketService.addProductToBasket(user, product1, amount);
     }
 
-    @GetMapping("/getCurrUser")
-    public OAuth2User getCurrUser(@AuthenticationPrincipal OAuth2User oAuthUser) {
-        return oAuthUser;
+    @GetMapping("/getProducts")
+    public List<Product> getProducts() {
+        return productService.getAllProducts();
     }
 }
