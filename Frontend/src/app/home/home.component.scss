@@ -1,4 +1,79 @@
 h1 {
   font-size: xx-large;
   text-align: center;
+  margin-bottom: 60px;
+}
+
+.home-page {
+}
+.home-page-images {
+  display: flex;
+  flex-direction: column;
+  width: 480px;
+  gap: 100px;
+}
+.first-two-images{
+  display: flex;
+  border-radius: 8px;
+  margin-left: 150px;
+  align-items: center;
+  gap: 100px;
+  .image-1 {
+    border-radius: 12px;
+    width: 300px;
+  }
+  .image-2{
+    border-radius: 12px;
+    height: 220px;
+  }
+}
+.second-two-images{
+  display: flex;
+  gap: 100px;
+  margin-left: 150px;
+  align-items: center;
+  .image-3{
+    border-radius: 12px;
+    height: 220px;
+  }
+  .image-4{
+    border-radius: 12px;
+    width: 300px;
+  }
+}
+
+
+@media (max-width: 991.98px) {
+  .home-page-images {
+    gap: 70px;
+  }
+  .first-two-images {
+    display: flex;
+    border-radius: 8px;
+    margin-left: 25px;
+    align-items: center;
+    gap: 70px;
+    .image-1 {
+      width: 260px;
+    }
+    .image-2 {
+      height: 210px;
+    }
+  }
+  .second-two-images {
+    display: flex;
+    gap: 70px;
+    margin-left: 25px;
+    align-items: center;
+
+    .image-3 {
+      border-radius: 12px;
+      height: 210px;
+    }
+
+    .image-4 {
+      border-radius: 12px;
+      width: 260px;
+    }
+  }
 }
