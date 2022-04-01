@@ -3,7 +3,9 @@ package com.example.demo.serviceImpl;
 import com.example.demo.entity.User;
 import com.example.demo.repository.UserRepository;
 import com.example.demo.service.UserService;
+import com.example.demo.utils.OAuthUserConverter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -22,10 +24,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User createNewUser(String username, String password) {
-        User user = new User();
-        user.setUsername(username);
-        user.setPassword(password);
-        return user;
+    public User createNewUser(OAuth2User user) {
+        User userEntity = OAuthUserConverter.oauthUserToEntity(user);
+        if (!userRepository.existsUserEntityByEmail(user.getAttribute("email"))){
+            userRepository.save(userEntity);
+        }
+        return userEntity;
     }
 }
