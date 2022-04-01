@@ -48,8 +48,8 @@ public class DemoApplication {
 
             Order order1 = new Order(null, user, new ArrayList<>(), new Date(), 0, 0);
             Order order2 = new Order(null, user, new ArrayList<>(), new Date(), 0, 0);
-            OrderProduct orderProduct1 = new OrderProduct(order1, product1, 1, 100);
-            OrderProduct orderProduct2 = new OrderProduct(order1, product2, 2, 200);
+            OrderProduct orderProduct1 = new OrderProduct(product1, 1);
+            OrderProduct orderProduct2 = new OrderProduct(product2, 2);
             order1.getProducts().add(orderProduct1);
             order1.getProducts().add(orderProduct2);
             orderRepository.save(order1);
