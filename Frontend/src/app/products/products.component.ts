@@ -1,7 +1,9 @@
 import {Component, ContentChild, ElementRef, Input, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
-import {Product, ProductsService} from "../products.service";
+import {ProductsService} from "../products.service";
 import {UsersService} from "../users.service";
+import {deserializeArray} from "class-transformer";
+import {Product} from "../entity/Product";
 
 @Component({
   selector: 'app-products',
@@ -12,17 +14,15 @@ export class ProductsComponent implements OnInit {
 
   @Input() product!: Product;
   visible = false;
-  locAmount:Array<number> = [];
   amount = 1;
+  products:Product[] = []
 
   constructor(public usersService: UsersService, public productsService: ProductsService, private router: Router) {
-    this.locAmount.length = productsService.products.length
+
   }
 
   ngOnInit() {
-    for(let i =0; i < this.locAmount.length; i++){
-      this.locAmount[i] = 1;
-    }
+    this.productsService.getAllProducts().subscribe(data => {this.products = deserializeArray(Product, <string>data.body)})
   }
   onIncrementAmount() {
     this.amount++;

@@ -17,7 +17,7 @@ import {ProductPageComponent} from './product-page/product-page.component';
 import {RegistrationComponent} from './registration/registration.component';
 import {MaterialModule} from "./material/material.module";
 import { LoginComponent } from './login/login.component';
-import {NgSelectModule} from "@ng-select/ng-select";
+import {NgSelectModule} from '@ng-select/ng-select';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
@@ -41,8 +41,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     AppRoutingModule,
     HttpClientModule,
     MaterialModule,
-    NgSelectModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -344,7 +344,7 @@
 </div>
 
 <div class="products-content">
-  <div  *ngFor="let p of productsService.products">
+  <div  *ngFor="let p of products">
     <a [routerLink]="['/products', p.id]" class="product">
       <img [src]="p.image" alt="Картинка" class="product-image">
     <div class="product-elements">

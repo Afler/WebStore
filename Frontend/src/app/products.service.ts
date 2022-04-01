@@ -1,19 +1,9 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {CookieService} from "ngx-cookie-service";
+import {Product} from "./entity/Product";
 
 const API_URL: string = 'http://localhost:8081'
-
-export interface Product {
-  id: number
-  name: string,
-  product?: [],
-  cost: string
-  description?: string
-  quantity?: number
-  image: string
-  category?: string
-}
 
 @Injectable({
   providedIn: 'root'
@@ -63,5 +53,13 @@ export class ProductsService {
     console.log(product);
     console.log(this.cookieService.get('access_token'))
     return this.http.post(API_URL + '/product/addProduct?amount=' + amount + '&username=' + this.cookieService.get('userName'), product, {headers: headers});
+  }
+
+  getAllProducts() {
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + this.cookieService.get('access_token')
+    });
+    return this.http.get(API_URL + '/product/getProducts', {headers: headers, responseType: 'text' as 'json', observe: 'response'});
   }
 }
