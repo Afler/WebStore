@@ -47,4 +47,9 @@ export class UsersService{
     const body = user;
     return this.http.post<User>(API_URL + '/user/save', body, {headers: headers});
   }
+
+  login() {
+    let headers;
+    return this.http.get(API_URL+'/profile')
+  }
 }
