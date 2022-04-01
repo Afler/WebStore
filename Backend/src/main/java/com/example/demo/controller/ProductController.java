@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.entity.OrderProduct;
 import com.example.demo.entity.Product;
 import com.example.demo.entity.User;
 import com.example.demo.serviceImpl.BasketServiceImpl;
@@ -43,5 +44,11 @@ public class ProductController {
     @GetMapping("/getProducts")
     public List<Product> getProducts() {
         return productService.getAllProducts();
+    }
+
+    @GetMapping("/getBasketProducts")
+    public List<OrderProduct> getBasketProducts(@RequestParam String username) {
+        User user = userService.findByUsername(username);
+        return basketService.getBasketProducts(user);
     }
 }
