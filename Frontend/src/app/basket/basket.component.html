@@ -4,10 +4,19 @@
     <div class="product" *ngFor="let p of productsService.products">
       <img [src]="p.image" alt="Картинка" class="product-image">
       <div class="product-elements">
-        <h2 class="product-title"><a [routerLink]="['/products', p.id]">{{p.name}}</a></h2>
+        <div class="name-with-button">
+          <h2 class="product-title"><a [routerLink]="['/products', p.id]">{{p.name}}</a></h2>
+          <button class="btn btn-delete-from-basket">Убрать из корзины</button>
+        </div>
         <p class="product-description">{{p.description}}</p>
         <div class="purchase-elements">
-          <p class="product-price">{{p.cost}} Р</p>
+          <div class="amount-element">
+            <p class="amount-label">Количество</p>
+            <p class="amount-number">{{amount}}</p>
+          </div>
+          <div class="vertical-text">
+            <p class="product-price vertical-align"><strong>{{p.cost}} Р</strong></p>
+          </div>
         </div>
       </div>
     </div>

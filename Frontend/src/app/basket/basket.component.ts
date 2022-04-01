@@ -11,12 +11,22 @@ export class BasketComponent implements OnInit {
 
   empty: boolean = this.productsService.products.length === 0;
 
+  visible = false;
+  amount = 1;
+
   constructor(public productsService: ProductsService, private router: Router) {
 
   }
 
   ngOnInit(): void {
     console.log(this.empty)
+  }
+  onIncrementAmount() {
+    this.amount++;
+  }
+  onDecrementAmount() {
+    if(this.amount > 1)
+      this.amount--;
   }
   purchase() {
 
