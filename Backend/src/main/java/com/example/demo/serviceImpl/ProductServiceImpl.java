@@ -37,4 +37,8 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> getProductsByCategory(String category) {
         return productRepository.findByCategory(category);
     }
+
+    public Product findByName(String product1) {
+       return productRepository.findByName(product1);
+    }
 }

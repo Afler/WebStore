@@ -13,7 +13,11 @@
         </ul>
       </nav>
       <div class="header-button">
-        <a href="#" class="btn btn-signin">Войти</a>
+<!--        <a href="http://localhost:8081/profile" class="btn btn-signin">Войти</a>-->
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li><a class="dropdown-item" routerLink="login" routerLinkActive="active">Авторизация</a></li>
+          <li><a class="dropdown-item" routerLink="registration" routerLinkActive="active">Регистрация</a>
+        </ul>
       </div>
     </div>
   </header>

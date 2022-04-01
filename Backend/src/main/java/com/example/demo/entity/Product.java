@@ -23,6 +23,7 @@ public class Product {
     @OneToMany(mappedBy = "product", cascade = CascadeType.PERSIST)
     private final List<OrderProduct> product = new ArrayList<>();
     private double cost;
+    private String description;
     private int quantity;
     @Lob
     private String image;
