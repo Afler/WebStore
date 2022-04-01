@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {CookieService} from "ngx-cookie-service";
 
 const API_URL: string = 'http://localhost:8081'
 
@@ -22,7 +23,7 @@ export class ProductsService {
   products: Product[] = [
     {
       id: 1,
-      name: 'Наименование',
+      name: 'product1',
       product: [],
       cost: '20000',
       description: 'Описание товара, состав все дела, производитель и тд',
@@ -32,7 +33,8 @@ export class ProductsService {
     },
   ]
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+              private cookieService: CookieService) {
   }
 
 
@@ -55,9 +57,11 @@ export class ProductsService {
   addProductToBasket(product: Product, amount: number) {
     console.log('addProductToBasket');
     let headers = new HttpHeaders({
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + this.cookieService.get('access_token')
     });
     console.log(product);
-    return this.http.post('http://localhost:8081/product/addProduct?amount=1', product, {headers: headers});
+    console.log(this.cookieService.get('access_token'))
+    return this.http.post(API_URL + '/product/addProduct?amount=' + amount + '&username=' + this.cookieService.get('userName'), product, {headers: headers});
   }
 }

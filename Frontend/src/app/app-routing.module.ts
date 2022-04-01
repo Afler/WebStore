@@ -8,6 +8,8 @@ import {ProductComponent} from "./product/product.component";
 import {AddFormComponent} from "./add-form/add-form.component";
 import {AddProductComponent} from "./add-product/add-product.component";
 import {ProductPageComponent} from "./product-page/product-page.component";
+import {RegistrationComponent} from "./registration/registration.component";
+import {LoginComponent} from "./login/login.component";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -18,6 +20,9 @@ const routes: Routes = [
   {path: 'products/:id', component: ProductPageComponent},
   {path: 'addForm', component: AddFormComponent},
   {path: 'addProduct', component: AddProductComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'registration', component: RegistrationComponent},
+
 ]
 
 @NgModule({

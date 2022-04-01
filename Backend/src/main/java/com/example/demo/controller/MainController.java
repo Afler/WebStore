@@ -16,9 +16,4 @@ public class MainController {
         this.userService = userService;
     }
 
-    @GetMapping(path = "/profile")
-    public ModelAndView loginPage(@AuthenticationPrincipal OAuth2User user) {
-        userService.createNewUser(user);
-        return new ModelAndView("redirect:" + "http://localhost:4200");
-    }
 }
