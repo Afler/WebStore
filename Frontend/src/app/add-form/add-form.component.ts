@@ -15,7 +15,7 @@ export class AddFormComponent implements OnInit {
   description = ''
   cost = ''
   image = ''
-  id = 2
+  id = 1
 
   constructor(private productService: ProductsService) {
   }
@@ -50,6 +50,7 @@ export class AddFormComponent implements OnInit {
       description: this.description,
       cost: this.cost
     }
+
     let resp = this.productService.saveProduct(product);
     resp.subscribe(data => {console.log(data)})
   }

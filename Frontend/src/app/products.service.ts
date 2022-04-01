@@ -23,6 +23,7 @@ export class ProductsService{
   constructor(private http: HttpClient) {
   }
 
+
   updateProducts(product: Product) {
     this.products.unshift(product) // добавляем в начало списка
   }

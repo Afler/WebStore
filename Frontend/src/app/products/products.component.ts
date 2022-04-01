@@ -11,10 +11,31 @@ import {UsersService} from "../users.service";
 export class ProductsComponent implements OnInit {
 
   @Input() product!: Product;
+  visible = false;
+  locAmount:Array<number> = [];
+  amount = 1;
 
-  constructor(public usersService: UsersService, public productsService: ProductsService, private router: Router) { }
+  constructor(public usersService: UsersService, public productsService: ProductsService, private router: Router) {
+    this.locAmount.length = productsService.products.length
+  }
 
   ngOnInit() {
+    for(let i =0; i < this.locAmount.length; i++){
+      this.locAmount[i] = 1;
+    }
+  }
+  onIncrementAmount() {
+    this.amount++;
+  }
+
+  onDecrementAmount() {
+    //var locId = parseInt((<HTMLInputElement>document.getElementById("prd-id")).value);
+    if(this.amount > 1) {
+      this.amount--;
+    }
+  }
+  onInputAmount(event: any) {
+    this.amount = event.target.value;
   }
   goToBasket() {
     this.router.navigate(['/basket'])

@@ -1,0 +1,25 @@
+<div class="product">
+  <img src="{{product.image}}" alt="Картинка" class="product-image">
+  <div class="product-elements">
+    <h2 class="product-title">{{product.name}}</h2>
+    <p class="product-description">{{product.description}}</p>
+    <div class="price-add-bask">
+      <p class="amount-label">Количество</p>
+      <p class="amount-number" >{{amount}}</p>
+      <p class="product-price">{{product.cost}} Р</p>
+      <button  class="btn btn-add-to-basket" (click)="visible=true">Добавить в корозину</button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="visible" class="popup-window-cntnr">
+  <div class="popup-window">
+    <div class="popup-content">
+      <p class="label-text">Укажите количество товара</p>
+      <div class="input-button">
+        <input type="number" value="1" (input)="onInputAmount($event)" required>
+        <button (click)="visible=false" class="btn btn-ok">&#10004;</button>
+      </div>
+    </div>
+  </div>
+</div>
