@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 @RequestMapping("/product")
@@ -33,12 +34,17 @@ public class ProductController {
     }
 
     @PostMapping("/addProduct")
-    public void addProductToBasket(@RequestBody Product product,
-                                   @RequestParam int amount,
-                                   @RequestParam String username) {
+    public void addProductToBasket(@RequestParam int amount,
+                                   @RequestParam String username,
+                                   @RequestBody Long productId) {
         User user = userService.findByUsername(username);
         Product product1 = productService.findByName("product1");
-        basketService.addProductToBasket(user, product1, amount);
+        Product product = productService.getProductById(productId);
+        if (Objects.isNull(product)) {
+            basketService.addProductToBasket(user, product1, amount);
+        } else {
+            basketService.addProductToBasket(user, product, amount);
+        }
     }
 
     @GetMapping("/getProducts")
