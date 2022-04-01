@@ -51,4 +51,9 @@ public class ProductController {
         User user = userService.findByUsername(username);
         return basketService.getBasketProducts(user);
     }
+
+    @GetMapping("/getProduct")
+    public Product getProduct(@RequestParam Long id) {
+        return productService.getProductById(id);
+    }
 }
