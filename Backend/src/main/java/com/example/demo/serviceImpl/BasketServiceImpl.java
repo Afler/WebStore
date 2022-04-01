@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
@@ -43,6 +44,10 @@ public class BasketServiceImpl implements BasketService {
         product.setQuantity(product.getQuantity() - amount);
         productRepository.save(product);
         Basket basket = basketRepository.findByUser(user);
+        if (Objects.isNull(basket)) {
+            basket = new Basket();
+            basket.setUser(user);
+        }
         List<OrderProduct> orderProducts = basket.getProducts();
 
         List<Product> products = orderProducts.stream().map(OrderProduct::getProduct).collect(Collectors.toList());
@@ -100,5 +105,17 @@ public class BasketServiceImpl implements BasketService {
         basket.setProducts(new ArrayList<>());
         basketRepository.save(basket);
         return true;
+    }
+
+    @Override
+    public List<OrderProduct> getBasketProducts(User user) {
+        Basket basket = basketRepository.findByUser(user);
+        if (Objects.isNull(basket)) {
+            basket = new Basket();
+            basket.setUser(user);
+            basket.setProducts(new ArrayList<>());
+            basketRepository.save(basket);
+        }
+        return basket.getProducts();
     }
 }
