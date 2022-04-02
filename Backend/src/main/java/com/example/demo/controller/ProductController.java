@@ -36,7 +36,7 @@ public class ProductController {
     @PostMapping("/addProduct")
     public void addProductToBasket(@RequestParam int amount,
                                    @RequestParam String username,
-                                   @RequestBody Long productId) {
+                                   @RequestParam Long productId) {
         User user = userService.findByUsername(username);
         Product product1 = productService.findByName("product1");
         Product product = productService.getProductById(productId);
@@ -49,6 +49,7 @@ public class ProductController {
 
     @GetMapping("/getProducts")
     public List<Product> getProducts() {
+
         return productService.getAllProducts();
     }
 

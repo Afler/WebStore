@@ -12,7 +12,6 @@ import {Product} from "../entity/Product";
 })
 export class ProductsComponent implements OnInit {
 
-  @Input() product!: Product;
   visible = false;
   amount = 1;
   products:Product[] = []
@@ -23,6 +22,7 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit() {
     this.productsService.getAllProducts().subscribe(data => {this.products = deserializeArray(Product, <string>data.body)})
+
   }
   onIncrementAmount() {
     this.amount++;
@@ -40,5 +40,12 @@ export class ProductsComponent implements OnInit {
   goToBasket() {
     this.router.navigate(['/basket'])
   }
-
+  // showProduct(){
+  //   let id = this.productsService.getProduct(this.oneProduct.id).subscribe({
+  //     next: (data) => console.log(data),
+  //     error: (error) => console.log(error),
+  //     complete: () => console.log('logout success')
+  //   });
+  //   return id;
+  // }
 }

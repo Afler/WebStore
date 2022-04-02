@@ -1,7 +1,7 @@
 <h1>Корзина с выбранными товарами</h1>
 <p ></p>
   <div *ngIf="!empty; else emptyBasket" class="products-content">
-    <div class="product" *ngFor="let p of productsService.products">
+    <div class="product" *ngFor="let p of basketProducts">
       <img [src]="p.image" alt="Картинка" class="product-image">
       <div class="product-elements">
         <div class="name-with-button">

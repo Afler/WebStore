@@ -20,8 +20,8 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String name;
-    @OneToMany(mappedBy = "product", cascade = CascadeType.PERSIST)
-    private final List<OrderProduct> product = new ArrayList<>();
+//    @OneToMany(mappedBy = "product", cascade = CascadeType.PERSIST)
+//    private final List<OrderProduct> product = new ArrayList<>();
     private double cost;
     private String description;
     private int quantity;

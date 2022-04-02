@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Product, ProductsService} from "../products.service";
+import {ProductsService} from "../products.service";
 import {ActivatedRoute, Params} from "@angular/router";
+import {Product} from "../entity/Product";
+import {deserialize, deserializeArray} from "class-transformer";
 
 @Component({
   selector: 'app-product-page',
@@ -9,10 +11,11 @@ import {ActivatedRoute, Params} from "@angular/router";
 })
 export class ProductPageComponent implements OnInit {
 
-  product!: Product
   visible = false;
   locAmount: Array<number> = [];
   amount = 1;
+  product!:Product
+  getProduct!: Product
 
   constructor(
     private route: ActivatedRoute,
@@ -21,10 +24,7 @@ export class ProductPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.route.params.subscribe((params: Params) => {
-      // @ts-ignore
-      this.product = this.productsService.getById(params.id)
-    })
+    this.productsService.getProduct().subscribe(data => {this.getProduct = deserialize(Product, <string>data.body)})
   }
 
   onInputAmount(event: any) {
