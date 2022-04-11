@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ProductsService} from "../products.service";
 import {Router} from "@angular/router";
+import {Product} from "../entity/Product";
+import {deserializeArray} from "class-transformer";
 
 @Component({
   selector: 'app-basket',
@@ -9,17 +11,18 @@ import {Router} from "@angular/router";
 })
 export class BasketComponent implements OnInit {
 
-  empty: boolean = this.productsService.products.length === 0;
+  empty: boolean = false;
 
   visible = false;
   amount = 1;
+  basketProducts:Product[] = []
 
   constructor(public productsService: ProductsService, private router: Router) {
 
   }
 
   ngOnInit(): void {
-    console.log(this.empty)
+    this.productsService.getBasketProducts().subscribe(data => {this.basketProducts = deserializeArray(Product, <string>data.body)})
   }
   onIncrementAmount() {
     this.amount++;

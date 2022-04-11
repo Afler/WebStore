@@ -1,12 +1,12 @@
 <div class="product">
-  <img src="{{product.image}}" alt="Картинка" class="product-image">
+  <img src="{{getProduct.image}}" alt="Картинка" class="product-image">
   <div class="product-elements">
-    <h2 class="product-title">{{product.name}}</h2>
-    <p class="product-description">{{product.description}}</p>
+    <h2 class="product-title">{{getProduct.name}}</h2>
+    <p class="product-description">{{getProduct.description}}</p>
     <div class="price-add-bask">
       <p class="amount-label">Количество</p>
       <p class="amount-number">{{amount}}</p>
-      <p class="product-price">{{product.cost}} Р</p>
+      <p class="product-price">{{getProduct.cost}} Р</p>
       <button class="btn btn-add-to-basket" (click)="visible=true">Добавить в корозину</button>
     </div>
   </div>

@@ -1,5 +1,5 @@
 import {Component, ContentChild, ElementRef, Input, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
+import {Params, Router} from "@angular/router";
 import {ProductsService} from "../products.service";
 import {UsersService} from "../users.service";
 import {deserializeArray} from "class-transformer";
@@ -12,27 +12,24 @@ import {Product} from "../entity/Product";
 })
 export class ProductsComponent implements OnInit {
 
-  @Input() product!: Product;
   visible = false;
   amount = 1;
   products:Product[] = []
+  superLocId:number = 0
+  idL = 0;
 
   constructor(public usersService: UsersService, public productsService: ProductsService, private router: Router) {
 
   }
 
   ngOnInit() {
-    this.productsService.getAllProducts().subscribe(data => {this.products = deserializeArray(Product, <string>data.body)})
-  }
-  onIncrementAmount() {
-    this.amount++;
-  }
 
-  onDecrementAmount() {
-    //var locId = parseInt((<HTMLInputElement>document.getElementById("prd-id")).value);
-    if(this.amount > 1) {
-      this.amount--;
-    }
+    this.productsService.getAllProducts().subscribe(data => {this.products = deserializeArray(Product, <string>data.body)
+      let locId = parseInt((<HTMLInputElement>document.getElementById("hidden")).value);
+
+      this.productsService.sendId(locId)
+    })
+
   }
   onInputAmount(event: any) {
     this.amount = event.target.value;
@@ -40,5 +37,26 @@ export class ProductsComponent implements OnInit {
   goToBasket() {
     this.router.navigate(['/basket'])
   }
-
+  // showProduct(){
+  //   let id = this.productsService.getProduct(this.oneProduct.id).subscribe({
+  //     next: (data) => console.log(data),
+  //     error: (error) => console.log(error),
+  //     complete: () => console.log('logout success')
+  //   });
+  //   return id;
+  // }
+  sendNewId(id:number){
+    this.superLocId = id
+  }
+  getNewId(){
+    return this.superLocId
+  }
+  addButton(id:number) {
+    this.productsService.addProductToBasket(id, this.amount).subscribe({
+      next: (data) => console.log(data),
+      error: (error) => console.log(error),
+      complete: () => console.log('logout success')
+    });
+    this.amount = 1
+  }
 }
