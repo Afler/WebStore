@@ -52,6 +52,7 @@ public class DemoApplication {
 
             Product product1 = new Product(null, "product1", 100, null, 10, null, "Одежда");
             Product product2 = new Product(null, "product2", 100, null, 20, null, "Одежда");
+
             productRepository.save(product1);
             productRepository.save(product2);
 

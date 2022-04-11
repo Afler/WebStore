@@ -12,13 +12,15 @@ import {UserComponent} from './user/user.component';
 import {BasketComponent} from './basket/basket.component';
 import {ProductComponent} from './product/product.component';
 import {AddProductComponent} from './add-product/add-product.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {ProductPageComponent} from './product-page/product-page.component';
 import {RegistrationComponent} from './registration/registration.component';
 import {MaterialModule} from "./material/material.module";
 import { LoginComponent } from './login/login.component';
 import {NgSelectModule} from '@ng-select/ng-select';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {Product} from "./entity/Product";
+import {AuthResp} from "./entity/AuthResp";
 
 @NgModule({
   declarations: [
@@ -44,7 +46,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     BrowserAnimationsModule,
     NgSelectModule
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

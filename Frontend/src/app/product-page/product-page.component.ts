@@ -7,7 +7,7 @@ import {deserialize, deserializeArray} from "class-transformer";
 @Component({
   selector: 'app-product-page',
   templateUrl: './product-page.component.html',
-  styleUrls: ['./product-page.component.scss']
+  styleUrls: ['./product-page.component.scss'],
 })
 export class ProductPageComponent implements OnInit {
 
@@ -24,7 +24,9 @@ export class ProductPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.productsService.getProduct().subscribe(data => {this.getProduct = deserialize(Product, <string>data.body)})
+
+    this.productsService.getProduct(this.productsService.getLocId()).subscribe(data => {this.getProduct = deserialize(Product, <string>data.body)})
+
   }
 
   onInputAmount(event: any) {
@@ -41,7 +43,7 @@ export class ProductPageComponent implements OnInit {
     //   error: (error) => console.log(error),
     //   complete: () => console.log('success')
     // })
-    this.productsService.addProductToBasket(this.product, this.amount).subscribe({
+    this.productsService.addProductToBasket(3, this.amount).subscribe({
       next: (data) => console.log(data),
       error: (error) => console.log(error),
       complete: () => console.log('logout success')

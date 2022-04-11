@@ -51,6 +51,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/api/registration/**").permitAll();
         http.logout().permitAll().logoutUrl("/logout").logoutSuccessHandler((request, response, authentication) -> {
         });
+
         http.authorizeRequests().antMatchers("/authenticate", "/login").permitAll();
         http.authorizeRequests().anyRequest().authenticated();
         http.addFilterBefore(new CustomAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);

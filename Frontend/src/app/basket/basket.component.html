@@ -5,7 +5,7 @@
       <img [src]="p.image" alt="Картинка" class="product-image">
       <div class="product-elements">
         <div class="name-with-button">
-          <h2 class="product-title"><a [routerLink]="['/products', p.id]">{{p.name}}</a></h2>
+          <h2 class="product-title">{{p.id}}</h2>
           <button class="btn btn-delete-from-basket">Убрать из корзины</button>
         </div>
         <p class="product-description">{{p.description}}</p>

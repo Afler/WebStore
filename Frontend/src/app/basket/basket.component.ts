@@ -22,7 +22,7 @@ export class BasketComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.productsService.getAllProducts().subscribe(data => {this.basketProducts = deserializeArray(Product, <string>data.body)})
+    this.productsService.getBasketProducts().subscribe(data => {this.basketProducts = deserializeArray(Product, <string>data.body)})
   }
   onIncrementAmount() {
     this.amount++;
