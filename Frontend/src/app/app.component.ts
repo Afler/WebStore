@@ -8,7 +8,7 @@ import {UsersService} from "./users.service";
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
-
+  visible = true;
   constructor(private usersService: UsersService) {
   }
 

@@ -86,6 +86,12 @@ body {
   display: flex;
   justify-content: flex-end;
 }
+.sign-buttons-list {
+  display: flex;
+}
+.btn-sign-in {
+  margin-right: 10px;
+}
 
 @media (max-width: 991.98px) {
   .header-button {
@@ -137,11 +143,25 @@ img {
   background-color: #681dff;
   transition: background-color 0.3s ease 0s;
 }
+@media (max-width: 991.98px) {
+  .btn-sign-in {
+    padding: 10px 4px 10px 4px;
+  }
+  .btn-sign-up {
+    padding: 10px 6px 10px 6px;
+  }
 
+}
 .btn:hover {
   background-color: #47009b;
+  cursor: pointer;
 }
-
+.btn-sign-up {
+  background-color: #009b24;
+}
+.btn-sign-up:hover {
+  background-color: #026419;
+}
 .form-control {
   display: block;
   margin-top: 10px;
@@ -156,25 +176,6 @@ textarea {
   font-size: 1.2rem;
   border: 1px solid #ccc;
   margin: 1.2rem 0;
-}
-
-.btn-signin {
-  display: inline-block;
-  text-transform: uppercase;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 1.2;
-  letter-spacing: 1px;
-  color:rgb(255, 248, 248);
-  padding: 10px 20px;
-  border-radius: 8px;
-  background-color: #0070b1;
-  transition: background-color 0.3s ease 0s;
-
-}
-
-.btn-signin:hover {
-  background-color: #004f7c;
 }
 
 .products {

@@ -1,21 +1,16 @@
-<div class="card border-secondary mx-auto" *ngIf="!isAuthenticated; else loggedIn"
-     style="max-width: 18rem;margin-top: 90px;">
-  <div class="card-header" style="text-align: center;">Авторизация</div>
-  <div class="card-body text-secondary" style="text-align: center;">
-    <h5 class="card-title mb-4">Введите логин и пароль</h5>
-    <div class="input-group mb-4" style="padding-left: 1.2rem;">
-      <label>
-        <input type="text" [(ngModel)]="username" class="form-control" placeholder="Логин*" value=""/>
-      </label>
-    </div>
-    <div class="input-group mb-4" style="padding-left: 1.2rem;">
-      <label>
-        <input type="password" [(ngModel)]="password" class="form-control" placeholder="Пароль*" value=""/>
-      </label>
-    </div>
-    <div class="input-group mb-3">
-      <input type="submit" class="btn btn-outline-success mx-auto" value="Подтвердить" (click)="onLoginClick()"/>
-    </div>
+<div class="sign-in-form" *ngIf="!isAuthenticated; else loggedIn">
+  <h1 class="form-header">Авторизация</h1>
+  <h3 class="form-title">Введите логин и пароль</h3>
+  <div class="input-group">
+    <label>
+      <input type="text" [(ngModel)]="username" class="form-control" placeholder="Логин" value=""/>
+    </label>
+
+    <label>
+      <input type="password" [(ngModel)]="password" class="form-control" placeholder="Пароль" value=""/>
+    </label>
+
+    <input type="submit" class="btn btn-success" value="Подтвердить" (click)="onLoginClick()"/>
   </div>
 </div>
 <ng-template #loggedIn>

@@ -15,6 +15,7 @@ export class RegistrationComponent {
   email!: string;
   selectedRole!: number;
   roleToPass: string[] = [];
+  visible = false
 
   roles = [
     {id: 1, name: "ROLE_ADMIN", placeholder: "Администратор"},
