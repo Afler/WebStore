@@ -1,4 +1,4 @@
-<div>
+<div class="form-add">
   <label>
   <input
     type="file"
@@ -16,7 +16,19 @@
     type="text"
     class="form-control"
     placeholder="Категория"
+    [(ngModel)]="category"
+  >
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Описание"
     [(ngModel)]="description"
+  >
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Количество"
+    [(ngModel)]="quantity"
   >
   <input
     type="text"

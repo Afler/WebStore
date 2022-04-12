@@ -12,11 +12,13 @@ export class AddFormComponent implements OnInit {
 
   @Output() onAdd: EventEmitter<Product> = new EventEmitter<Product>()
 
+  id = 1
   name = ''
+  quantity = ''
+  category = ''
   description = ''
   cost = ''
   image = ''
-  id = 1
 
   constructor(private productService: ProductsService) {
   }
@@ -49,9 +51,11 @@ export class AddFormComponent implements OnInit {
       image: this.image,
       name: this.name,
       description: this.description,
+      category: this.category,
+      quantity: Number(this.quantity),
       cost: this.cost
     }
-
+    this.id += 1
     let resp = this.productService.saveProduct(product);
     resp.subscribe(data => {console.log(data)})
   }
