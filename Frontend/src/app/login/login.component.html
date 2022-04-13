@@ -1,3 +1,7 @@
+<div *ngIf="er==true" class="error-message">
+  <h1>Неверное имя пользователя</h1>
+  <h1>или пароль</h1>
+</div>
 <div class="sign-in-form" *ngIf="!isAuthenticated; else loggedIn">
   <h1 class="form-header">Авторизация</h1>
   <h3 class="form-title">Введите логин и пароль</h3>
@@ -11,6 +15,7 @@
     </label>
 
     <input type="submit" class="btn btn-success" value="Подтвердить" (click)="onLoginClick()"/>
+
   </div>
 </div>
 <ng-template #loggedIn>

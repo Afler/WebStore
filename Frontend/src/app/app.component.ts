@@ -9,7 +9,11 @@ import {UsersService} from "./users.service";
 })
 export class AppComponent {
   visible = true;
+
   constructor(private usersService: UsersService) {
+
+  }
+  ngOnInit() {
   }
 
 }

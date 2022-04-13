@@ -6,7 +6,7 @@
       <div class="product-elements">
         <div class="name-with-button">
           <h2 class="product-title">{{p.name}}</h2>
-          <button class="btn btn-delete-from-basket">Убрать из корзины</button>
+          <button class="btn btn-delete-from-basket" (click)="deleteFromBasket()">Убрать из корзины</button>
         </div>
         <p class="product-description">{{p.description}}</p>
         <div class="purchase-elements">
@@ -20,6 +20,7 @@
         </div>
       </div>
     </div>
+    <a class="btn btn-make-purchase" [routerLink]="['/purchase']" routerLinkActive="active">Оплатить заказ</a>
   </div>
 <ng-template #emptyBasket>
   <div class="products-content">
@@ -28,4 +29,3 @@
     </div>
   </div>
 </ng-template>
-<button class="btn btn-make-purchase" (click)="purchase()">Оплатить заказ</button>

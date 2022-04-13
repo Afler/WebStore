@@ -11,7 +11,7 @@ import {deserializeArray} from "class-transformer";
 })
 export class BasketComponent implements OnInit {
 
-  empty: boolean = false;
+  empty: boolean = true;
 
   visible = false;
   amount = 1;
@@ -22,7 +22,9 @@ export class BasketComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.productsService.getBasketProducts().subscribe(data => {this.basketProducts = deserializeArray(Product, <string>data.body)})
+    this.productsService.getBasketProducts().subscribe(data => {this.basketProducts = deserializeArray(Product, <string>data.body)
+    this.empty = false
+    })
   }
   onIncrementAmount() {
     this.amount++;
@@ -32,6 +34,9 @@ export class BasketComponent implements OnInit {
       this.amount--;
   }
   purchase() {
+
+  }
+  deleteFromBasket() {
 
   }
 
