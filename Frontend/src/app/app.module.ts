@@ -21,6 +21,7 @@ import {NgSelectModule} from '@ng-select/ng-select';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {Product} from "./entity/Product";
 import {AuthResp} from "./entity/AuthResp";
+import { PurchaseProductComponent } from './purchase-product/purchase-product.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {AuthResp} from "./entity/AuthResp";
     AddProductComponent,
     ProductPageComponent,
     RegistrationComponent,
-    LoginComponent
+    LoginComponent,
+    PurchaseProductComponent
   ],
   imports: [
     BrowserModule,

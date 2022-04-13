@@ -10,6 +10,7 @@ import {AddProductComponent} from "./add-product/add-product.component";
 import {ProductPageComponent} from "./product-page/product-page.component";
 import {RegistrationComponent} from "./registration/registration.component";
 import {LoginComponent} from "./login/login.component";
+import {PurchaseProductComponent} from "./purchase-product/purchase-product.component";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'addProduct', component: AddProductComponent},
   {path: 'login', component: LoginComponent},
   {path: 'registration', component: RegistrationComponent},
+  {path: 'purchase', component: PurchaseProductComponent}
 
 ]
 

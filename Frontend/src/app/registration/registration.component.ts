@@ -16,6 +16,7 @@ export class RegistrationComponent {
   selectedRole!: number;
   roleToPass: string[] = [];
   visible = false
+  registered = false
 
   roles = [
     {id: 1, name: "ROLE_ADMIN", placeholder: "Администратор"},
@@ -30,7 +31,7 @@ export class RegistrationComponent {
     this.roleToPass.push(this.roles[this.selectedRole - 1].name);
     let newUser = new NewUser(this.username, this.password, this.email, this.roleToPass)
     this.userService.register(newUser).subscribe(data => {
-      this.snackBar.open(data, 'OK', {duration: 1000 * 10});
+      this.registered = true
     });
   }
 }
