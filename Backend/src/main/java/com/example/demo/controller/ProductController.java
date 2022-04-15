@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/product")
@@ -48,8 +49,10 @@ public class ProductController {
     }
 
     @GetMapping("/getProducts")
-    public List<Product> getProducts() {
-
+    public List<Product> getProducts(@RequestParam Optional<String> sortType) {
+        if (sortType.isPresent() && sortType.get().equals("price")) {
+            return productService.sortProductsByPrice(productService.getAllProducts());
+        }
         return productService.getAllProducts();
     }
 
