@@ -59,4 +59,6 @@ export class ProductsComponent implements OnInit {
     });
     this.amount = 1
   }
+  sortByPrice() {
+  }
 }

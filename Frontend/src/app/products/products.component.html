@@ -344,6 +344,7 @@
 </div>
 
 <div class="products-content">
+  <button class="btn btn-sort" (click)="sortByPrice()">Отсортировать по цене</button>
   <div  *ngFor="let p of products">
 
     <div class="product">
@@ -356,10 +357,6 @@
 <!--          <button *ngIf="usersService.users[0].admin" [routerLink]="['/prod', p.id]" class="btn btn-edit">Редактировать</button>-->
         </div>
         <div class="purchase-elements">
-<!--          <button (click)="onDecrementAmount()" class="btn btn-incr-decr">-</button>-->
-<!--          <input id="prd-id" oninput value="1" disabled>-->
-<!--          <p class="amount-number" >{{amount}}</p>-->
-<!--          <button (click)="onIncrementAmount()" class="btn btn-incr-decr">+</button>-->
           <p class="product-price">{{p.cost}} Р</p>
           <button class="btn btn-add-to-basket" (click)="visible=true; idL = p.id">Добавить в корозину</button>
           <div *ngIf="visible && p.id == idL" class="popup-window-cntnr">
@@ -376,7 +373,6 @@
               </div>
             </div>
           </div>
-          <!--          <button  class="btn btn-add-to-basket" (click)="visible=true">Добавить в корозину</button>-->
         </div>
       </div>
     </div>
@@ -386,105 +382,3 @@
 
 <button class="btn btn-make-purchase" (click)="goToBasket()">Перейти в корзину</button>
 
-
-
-<!--<form>-->
-<!--  <p><select name="food">-->
-<!--    <optgroup label="Верхняя одежда">-->
-<!--      <option value="r1">Куртки</option>-->
-<!--      <option value="r2">Пиджаки</option>-->
-<!--      <option value="r3">Рубашки</option>-->
-<!--      <option value="r3">Кофты</option>-->
-<!--      <option value="r3">Футболки</option>-->
-<!--    </optgroup>-->
-<!--    <optgroup label="Нижняя одежда">-->
-<!--      <option value="u1">Брюки</option>-->
-<!--      <option value="u2">Спортивные штаны</option>-->
-<!--      <option value="u3">Шорты</option>-->
-<!--    </optgroup>-->
-<!--  </select></p>-->
-<!--  <p><input type="submit" value="Показать"></p>-->
-<!--</form>-->
-
-<!--<div class="category-block">-->
-<!--  <div class="categories">-->
-<!--    <nav class="dropdown-menu-al">-->
-<!--      <div class="first-level-div">-->
-<!--        <button data-path="one" class="btn btn-frst-lvl dropdown-toggle">Верхняя одежда</button>-->
-<!--        <ul data-target="one" class="first-list-al">-->
-<!--          <li><a class="first-level-link-al" href="">a</a></li>-->
-<!--          <li><a class="first-level-link-al" href="">b</a></li>-->
-<!--          <li><a class="first-level-link-al" href="">c</a></li>-->
-<!--          <li><a class="first-level-link-al" href="">d</a></li>-->
-<!--          <li><a class="first-level-link-al" href="">e</a></li>-->
-<!--        </ul>-->
-<!--      </div>-->
-
-<!--      <div class="first-level-div">-->
-<!--        <button data-path="two" class="btn btn-frst-lvl dropdown-toggle">Верхняя одежда</button>-->
-<!--        <ul data-target="two" class="first-list-al">-->
-<!--          <li><a class="first-level-link-al" href="">a</a></li>-->
-<!--          <li><a class="first-level-link-al" href="">b</a></li>-->
-<!--          <li><a class="first-level-link-al" href="">c</a></li>-->
-<!--          <li><a class="first-level-link-al" href="">d</a></li>-->
-<!--          <li><a class="first-level-link-al" href="">e</a></li>-->
-<!--        </ul>-->
-<!--      </div>-->
-
-<!--      <div class="first-level-div">-->
-<!--        <button data-path="three" class="btn btn-frst-lvl dropdown-toggle">Верхняя одежда</button>-->
-<!--        <ul data-target="three" class="first-list-al">-->
-<!--          <li><a class="first-level-link-al" href="">a</a></li>-->
-<!--          <li><a class="first-level-link-al" href="">b</a></li>-->
-<!--          <li><a class="first-level-link-al" href="">c</a></li>-->
-<!--          <li><a class="first-level-link-al" href="">d</a></li>-->
-<!--          <li><a class="first-level-link-al" href="">e</a></li>-->
-<!--        </ul>-->
-<!--      </div>-->
-
-<!--      <div class="first-level-div">-->
-<!--        <button data-path="four" class="btn btn-frst-lvl dropdown-toggle">Верхняя одежда</button>-->
-<!--        <ul data-target="four" class="first-list-al">-->
-<!--          <li><a class="first-level-link-al" href="">a</a></li>-->
-<!--          <li><a class="first-level-link-al" href="">b</a></li>-->
-<!--          <li><a class="first-level-link-al" href="">c</a></li>-->
-<!--          <li><a class="first-level-link-al" href="">d</a></li>-->
-<!--          <li><a class="first-level-link-al" href="">e</a></li>-->
-<!--        </ul>-->
-<!--      </div>-->
-
-<!--      <div class="first-level-div">-->
-<!--        <button data-path="five" class="btn btn-frst-lvl dropdown-toggle">Верхняя одежда</button>-->
-<!--        <ul data-target="five" class="first-list-al">-->
-<!--          <li><a class="first-level-link-al" href="">a</a></li>-->
-<!--          <li><a class="first-level-link-al" href="">b</a></li>-->
-<!--          <li><a class="first-level-link-al" href="">c</a></li>-->
-<!--          <li><a class="first-level-link-al" href="">d</a></li>-->
-<!--          <li><a class="first-level-link-al" href="">e</a></li>-->
-<!--        </ul>-->
-<!--      </div>-->
-
-<!--      <div class="first-level-div">-->
-<!--        <button data-path="six" class="btn btn-frst-lvl dropdown-toggle">Верхняя одежда</button>-->
-<!--        <ul data-target="six" class="first-list-al">-->
-<!--          <li><a class="first-level-link-al" href="">a</a></li>-->
-<!--          <li><a class="first-level-link-al" href="">b</a></li>-->
-<!--          <li><a class="first-level-link-al" href="">c</a></li>-->
-<!--          <li><a class="first-level-link-al" href="">d</a></li>-->
-<!--          <li><a class="first-level-link-al" href="">e</a></li>-->
-<!--        </ul>-->
-<!--      </div>-->
-
-<!--      <div class="first-level-div">-->
-<!--        <button data-path="seven" class="btn btn-frst-lvl dropdown-toggle">Верхняя одежда</button>-->
-<!--        <ul data-target="seven" class="first-list-al">-->
-<!--          <li><a class="first-level-link-al" href="">a</a></li>-->
-<!--          <li><a class="first-level-link-al" href="">b</a></li>-->
-<!--          <li><a class="first-level-link-al" href="">c</a></li>-->
-<!--          <li><a class="first-level-link-al" href="">d</a></li>-->
-<!--          <li><a class="first-level-link-al" href="">e</a></li>-->
-<!--        </ul>-->
-<!--      </div>-->
-<!--    </nav>-->
-<!--  </div>-->
-<!--</div>-->
