@@ -57,6 +57,6 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<Product> sortProductsByPrice(List<Product> products) {
-        return productRepository.findAll(Sort.by(Sort.Direction.ASC, "cost"));
+        return productRepository.findAll(Sort.by(Sort.Direction.DESC, "cost"));
     }
 }

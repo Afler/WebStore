@@ -51,6 +51,15 @@ export class ProductsService {
     });
     return this.http.get(API_URL + '/product/getProduct?id=' + id, {headers: headers, responseType: 'text' as 'json', observe: 'response'});
   }
+  getProducts(sortType: string){
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + this.cookieService.get('access_token')
+    });
+    return this.http.get(API_URL + '/product/getProducts?sortType=' + sortType, {headers: headers, responseType: 'text' as 'json', observe: 'response'});
+
+
+  }
   getBasketProducts() {
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',

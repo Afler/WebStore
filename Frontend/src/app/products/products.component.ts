@@ -15,6 +15,7 @@ export class ProductsComponent implements OnInit {
   visible = false;
   amount = 1;
   products:Product[] = []
+  price:string = "price"
   superLocId:number = 0
   idL = 0;
 
@@ -60,5 +61,8 @@ export class ProductsComponent implements OnInit {
     this.amount = 1
   }
   sortByPrice() {
+    this.productsService.getProducts(this.price).subscribe(data => {this.products = deserializeArray(Product, <string>data.body)
+
+    })
   }
 }
