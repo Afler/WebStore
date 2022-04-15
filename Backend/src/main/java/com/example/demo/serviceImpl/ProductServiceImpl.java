@@ -4,6 +4,7 @@ import com.example.demo.service.ProductService;
 import com.example.demo.entity.Product;
 import com.example.demo.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -52,5 +53,10 @@ public class ProductServiceImpl implements ProductService {
     public Product getProductById(Long id) {
         Optional<Product> optionalProduct = productRepository.findById(id);
         return optionalProduct.orElse(null);
+    }
+
+    @Override
+    public List<Product> sortProductsByPrice(List<Product> products) {
+        return productRepository.findAll(Sort.by(Sort.Direction.ASC, "cost"));
     }
 }
