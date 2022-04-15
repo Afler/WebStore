@@ -19,11 +19,13 @@ ul, ol, li {
 html, body {
   height: 100%;
   line-height: 1;
+
 }
 
 body {
   font-family: "Rubik";
   font-size: 14px;
+
 }
 .title {
   margin-bottom: 40px;
@@ -33,9 +35,11 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100%;
+
 }
 .main {
   flex: 1 1 auto;
+
 }
 
 [class*="-container"] {

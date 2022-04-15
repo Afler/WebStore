@@ -17,10 +17,11 @@ export class RegistrationComponent {
   roleToPass: string[] = [];
   visible = false
   registered = false
+  placeHolForNgSel = "Выберите роль"
 
   roles = [
-    {id: 1, name: "ROLE_ADMIN", placeholder: "Администратор"},
-    {id: 2, name: "ROLE_CUSTOMER", placeholder: "Покупатель"}
+    {id: 1, name: "ROLE_ADMIN", pHol: "Администратор"},
+    {id: 2, name: "ROLE_CUSTOMER", pHol: "Покупатель"}
   ]
 
   constructor(private userService: UsersService,
