@@ -6,20 +6,19 @@
   <h3 class="form-title">Введите логин и пароль</h3>
   <div class="input-group">
     <label>
-      <input type="text" [(ngModel)]="username" class="form-control" placeholder="Логин" value=""/>
+      <input type="text" [(ngModel)]="username" class="form-control" placeholder="Логин" value="" (input)="registered=false"/>
     </label>
 
     <label>
-      <input type="text" [(ngModel)]="password" class="form-control" placeholder="Пароль" value=""/>
+      <input type="text" [(ngModel)]="password" class="form-control" placeholder="Пароль" value="" (input)="registered=false"/>
     </label>
 
     <label>
-      <input type="text" [(ngModel)]="email" class="form-control" placeholder="Email" value=""/>
+      <input type="text" [(ngModel)]="email" class="form-control" placeholder="Email" value="" (input)="registered=false"/>
     </label>
-
-    <ng-select class="role-selector" [(ngModel)]="selectedRole" placeholder="Выберите роль">
+    <ng-select class="role-selector" [(ngModel)]="selectedRole" (click)="registered=false">
       <ng-option *ngFor="let role of roles" [value]="role.id">
-        <div class="role">{{role.placeholder}}</div>
+        <div class="role">{{role.pHol}}</div>
       </ng-option>
 
     </ng-select>

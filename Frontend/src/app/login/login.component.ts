@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {CookieService} from "ngx-cookie-service";
 import {AuthResp} from "../entity/AuthResp";
 import {deserialize} from "class-transformer";
@@ -17,7 +17,6 @@ export class LoginComponent implements OnInit {
   authResp!: AuthResp;
   isAuthenticated: boolean = false;
   er:boolean = false
-
   constructor(private userService: UsersService,
               private cookieService: CookieService,
               private snackBar: MatSnackBar) {
@@ -26,7 +25,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     if (this.cookieService.check('isAuthenticated')) {
       this.isAuthenticated = (this.cookieService.get('isAuthenticated') == 'OK')
-      console.log(this.cookieService.get('isAuthenticated'))
     }
   }
 
@@ -40,7 +38,6 @@ export class LoginComponent implements OnInit {
         this.cookieService.set('role', role)
         this.cookieService.set('userName', this.username)
         window.open('/products','_self')
-
 
       },
       error => {
