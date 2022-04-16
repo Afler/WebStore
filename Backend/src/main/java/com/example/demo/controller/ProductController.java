@@ -50,22 +50,27 @@ public class ProductController {
 
     @GetMapping("/getProducts")
     public List<Product> getProducts(@RequestParam Optional<String> sortType, @RequestParam Optional<String> category) {
-        if (sortType.isPresent() && sortType.get().equals("priceAsc")) {
-            return productService.sortProductsByPriceAsc(productService.getAllProducts());
-        } else if (sortType.isPresent() && sortType.get().equals("priceDesc")) {
-            return productService.sortProductsByPriceDesc(productService.getAllProducts());
-        } else if (sortType.isPresent() && sortType.get().equals("nameAsc")) {
-            return productService.sortProductsByNameAsc(productService.getAllProducts());
-        } else if (sortType.isPresent() && sortType.get().equals("nameDesc")) {
-            return productService.sortProductsByNameDesc(productService.getAllProducts());
-        } else if (sortType.isPresent() && sortType.get().equals("countAsc")) {
-            return productService.sortProductsByCountAsc(productService.getAllProducts());
-        } else if (sortType.isPresent() && sortType.get().equals("countDesc")) {
-            return productService.sortProductsByCountDesc(productService.getAllProducts());
-        } else if (category.isPresent()) {
+        List<Product> allProducts = productService.getAllProducts();
+        if (sortType.isPresent()) {
+            switch (sortType.get()) {
+                case "priceAsc":
+                    return productService.sortProductsByPriceAsc(allProducts);
+                case "priceDesc":
+                    return productService.sortProductsByPriceDesc(allProducts);
+                case "nameAsc":
+                    return productService.sortProductsByNameAsc(allProducts);
+                case "nameDesc":
+                    return productService.sortProductsByNameDesc(allProducts);
+                case "countAsc":
+                    return productService.sortProductsByCountAsc(allProducts);
+                case "countDesc":
+                    return productService.sortProductsByCountDesc(allProducts);
+            }
+        }
+        if (category.isPresent()) {
             return productService.getProductsByCategory(category.get());
         }
-        return productService.getAllProducts();
+        return allProducts;
     }
 
     @GetMapping("/getBasketProducts")
