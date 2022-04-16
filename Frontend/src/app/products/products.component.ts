@@ -72,7 +72,7 @@ export class ProductsComponent implements OnInit {
     this.productsService.getProducts(quantity).subscribe(data => {this.products = deserializeArray(Product, <string>data.body)
     })
   }
-  showUpperClothe(category:string){
+  showByCategory(category:string){
     this.productsService.getProductsByCategory(category).subscribe(data => {this.products = deserializeArray(Product, <string>data.body)
     })
   }
