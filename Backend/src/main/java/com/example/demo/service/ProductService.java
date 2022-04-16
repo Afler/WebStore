@@ -16,6 +16,16 @@ public interface ProductService {
 
     Product getProductById(Long id);
 
-    List<Product> sortProductsByPrice(List<Product> products);
+    List<Product> sortProductsByPriceAsc(List<Product> products);
+
+    List<Product> sortProductsByPriceDesc(List<Product> products);
+
+    List<Product> sortProductsByNameAsc(List<Product> products);
+
+    List<Product> sortProductsByNameDesc(List<Product> products);
+
+    List<Product> sortProductsByCountAsc(List<Product> products);
+
+    List<Product> sortProductsByCountDesc(List<Product> products);
 
 }

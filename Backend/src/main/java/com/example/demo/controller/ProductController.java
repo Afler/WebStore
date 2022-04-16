@@ -50,8 +50,18 @@ public class ProductController {
 
     @GetMapping("/getProducts")
     public List<Product> getProducts(@RequestParam Optional<String> sortType) {
-        if (sortType.isPresent() && sortType.get().equals("price")) {
-            return productService.sortProductsByPrice(productService.getAllProducts());
+        if (sortType.isPresent() && sortType.get().equals("priceAsc")) {
+            return productService.sortProductsByPriceAsc(productService.getAllProducts());
+        } else if (sortType.isPresent() && sortType.get().equals("priceDesc")) {
+            return productService.sortProductsByPriceDesc(productService.getAllProducts());
+        } else if (sortType.isPresent() && sortType.get().equals("nameAsc")) {
+            return productService.sortProductsByNameAsc(productService.getAllProducts());
+        } else if (sortType.isPresent() && sortType.get().equals("nameDesc")) {
+            return productService.sortProductsByNameDesc(productService.getAllProducts());
+        } else if (sortType.isPresent() && sortType.get().equals("countAsc")) {
+            return productService.sortProductsByCountAsc(productService.getAllProducts());
+        } else if (sortType.isPresent() && sortType.get().equals("countDesc")) {
+            return productService.sortProductsByCountDesc(productService.getAllProducts());
         }
         return productService.getAllProducts();
     }
