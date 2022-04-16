@@ -4,8 +4,10 @@
     type="file"
     class="input-file"
     placeholder="Картинка"
-    [(ngModel)]="image"
+    (change)="addImage($event)"
   ><span class="btn-add-image btn">Добавить изображение</span></label>
+  <img src="data:image/jpeg;base64,{{image1}}" alt="" class="img-fluid mb-2" width="315px"
+       height="465px"><br>
   <input
     type="text"
     class="form-control"

@@ -371,7 +371,7 @@
   <div  *ngFor="let p of products">
 
     <div class="product">
-      <img [src]="p.image" alt="Картинка" class="product-image">
+      <img src="data:image/jpeg;base64,{{p.image}}" alt="Картинка" class="product-image">
     <div class="product-elements">
       <h2 class="product-title">{{p.name}}</h2>
       <textarea class="product-description" disabled="disabled" style="overflow:hidden">{{p.description}}</textarea>

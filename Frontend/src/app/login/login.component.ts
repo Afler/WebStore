@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   username!: string;
   password!: string;
   authResp!: AuthResp;
-  isAuthenticated: boolean = false;
+  isAuthenticated!: boolean;
   er:boolean = false
   constructor(private userService: UsersService,
               private cookieService: CookieService,
@@ -24,7 +24,9 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.cookieService.check('isAuthenticated')) {
-      this.isAuthenticated = (this.cookieService.get('isAuthenticated') == 'OK')
+      let check = this.cookieService.get('isAuthenticated') == 'OK';
+      console.log(check)
+      this.isAuthenticated = check
     }
   }
 

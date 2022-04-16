@@ -14,30 +14,37 @@ export class ProductsComponent implements OnInit {
 
   visible = false;
   amount = 1;
-  products:Product[] = []
-  price:string = "price"
-  superLocId:number = 0
+  products: Product[] = []
+  price: string = "price"
+  superLocId: number = 0
   idL = 0;
 
-  constructor(public usersService: UsersService, public productsService: ProductsService, private router: Router) {
+  constructor(public usersService: UsersService,
+              public productsService: ProductsService,
+              private router: Router) {
 
   }
 
   ngOnInit() {
 
-    this.productsService.getAllProducts().subscribe(data => {this.products = deserializeArray(Product, <string>data.body)
-      let locId = parseInt((<HTMLInputElement>document.getElementById("hidden")).value);
+    this.productsService.getAllProducts().subscribe(data => {
+      this.products = deserializeArray(Product, <string>data.body)
+      console.log(this.products)
 
+      let locId = parseInt((<HTMLInputElement>document.getElementById("hidden")).value);
       this.productsService.sendId(locId)
     })
 
   }
+
   onInputAmount(event: any) {
     this.amount = event.target.value;
   }
+
   goToBasket() {
     this.router.navigate(['/basket'])
   }
+
   // showProduct(){
   //   let id = this.productsService.getProduct(this.oneProduct.id).subscribe({
   //     next: (data) => console.log(data),
@@ -46,13 +53,15 @@ export class ProductsComponent implements OnInit {
   //   });
   //   return id;
   // }
-  sendNewId(id:number){
+  sendNewId(id: number) {
     this.superLocId = id
   }
-  getNewId(){
+
+  getNewId() {
     return this.superLocId
   }
-  addButton(id:number) {
+
+  addButton(id: number) {
     this.productsService.addProductToBasket(id, this.amount).subscribe({
       next: (data) => console.log(data),
       error: (error) => console.log(error),
@@ -60,20 +69,28 @@ export class ProductsComponent implements OnInit {
     });
     this.amount = 1
   }
-  sortByPrice(price:string) {
-    this.productsService.getProducts(price).subscribe(data => {this.products = deserializeArray(Product, <string>data.body)
+
+  sortByPrice(price: string) {
+    this.productsService.getProducts(price).subscribe(data => {
+      this.products = deserializeArray(Product, <string>data.body)
     })
   }
-  sortByName(name:string) {
-    this.productsService.getProducts(name).subscribe(data => {this.products = deserializeArray(Product, <string>data.body)
+
+  sortByName(name: string) {
+    this.productsService.getProducts(name).subscribe(data => {
+      this.products = deserializeArray(Product, <string>data.body)
     })
   }
-  sortByQuantity(quantity:string) {
-    this.productsService.getProducts(quantity).subscribe(data => {this.products = deserializeArray(Product, <string>data.body)
+
+  sortByQuantity(quantity: string) {
+    this.productsService.getProducts(quantity).subscribe(data => {
+      this.products = deserializeArray(Product, <string>data.body)
     })
   }
-  showByCategory(category:string){
-    this.productsService.getProductsByCategory(category).subscribe(data => {this.products = deserializeArray(Product, <string>data.body)
+
+  showByCategory(category: string) {
+    this.productsService.getProductsByCategory(category).subscribe(data => {
+      this.products = deserializeArray(Product, <string>data.body)
     })
   }
 }
