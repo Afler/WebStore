@@ -14,7 +14,7 @@ export class ProductPageComponent implements OnInit {
   visible = false;
   locAmount: Array<number> = [];
   amount = 1;
-  product!:Product
+  product!: Product
   getProduct!: Product
 
   constructor(
@@ -25,7 +25,9 @@ export class ProductPageComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.productsService.getProduct(this.productsService.getLocId()).subscribe(data => {this.getProduct = deserialize(Product, <string>data.body)})
+    this.productsService.getProduct(this.productsService.getLocId()).subscribe(data => {
+      this.getProduct = deserialize(Product, <string>data.body)
+    })
 
   }
 

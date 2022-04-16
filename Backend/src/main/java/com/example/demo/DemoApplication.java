@@ -16,7 +16,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.Date;
 
 @SpringBootApplication
@@ -50,8 +54,8 @@ public class DemoApplication {
             userService.saveUser(user);
             userService.saveUser(new User(null, "user2", "pass2", "user2@email.com"));
 
-            Product product1 = new Product(null, "Футболка", 490, "Цвет: красный\nМатериал: хлопок 100%\nРазмеры: xs, s, m, l, xl\nВ наличии: 10\n", 10, "https://www.sportkult.ru/res/shop/goods/192466_1430_Polo_Shirt_Pique_Classic_F_0.jpg", "Верхняя одежда");
-            Product product2 = new Product(null, "Джинсы", 1990, "Цвет: синий\nМатериал: хлопок 90%, полиэстер10%\nРазмеры: xs, s, m, l, xl\nВ наличии: 20\n", 20, "https://www.partner-moto.ru/media/610/61063.jpg", "Нижняя одежда");
+            Product product1 = new Product(null, "Футболка", 490, "Цвет: красный\nМатериал: хлопок 100%\nРазмеры: xs, s, m, l, xl\nВ наличии: 10\n", 10, Base64.getEncoder().encodeToString(getImg("/images/polo.jpg")), "Верхняя одежда");
+            Product product2 = new Product(null, "Джинсы", 1990, "Цвет: синий\nМатериал: хлопок 90%, полиэстер10%\nРазмеры: xs, s, m, l, xl\nВ наличии: 20\n", 20, Base64.getEncoder().encodeToString(getImg("/images/jeans.jpg")), "Нижняя одежда");
 
             productRepository.save(product1);
             productRepository.save(product2);
@@ -66,6 +70,20 @@ public class DemoApplication {
             orderRepository.save(order2);
 
         };
+    }
+
+
+    private byte[] getImg(String name) {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        try (InputStream in = getClass().getResourceAsStream(name)) {
+            int length;
+            byte[] buffer = new byte[1024];
+            while ((length = in.read(buffer)) != -1)
+                out.write(buffer, 0, length);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return out.toByteArray();
     }
 
     public static void main(String[] args) {
