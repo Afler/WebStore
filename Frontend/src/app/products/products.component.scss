@@ -1,9 +1,9 @@
+#hidden{
+  display: none;
+}
 .dropdown-menu {
   margin: 0;
   padding: 0;
-}
-#hidden{
-  display: none;
 }
 .dropdown-menu ul {
   list-style: none;
@@ -278,21 +278,17 @@
   flex-direction: row;
 }
 
-.popup-window-cntnr {
-  top: 0;
-  left: 0;
-  overflow: auto;
-}
+
 .popup-window {
-  width: 200px;
-  height: 200px;
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
+  top: 0px;
+  left: 0px;
   right: 0;
   bottom: 0;
-  margin: auto;
+  margin-left: 20px;
+
 }
+
 .popup-content {
   display: block;
   height: auto;
@@ -337,10 +333,62 @@
   padding: 0;
   align-self: center;
 }
-.btn-sort {
-  margin-bottom: 20px;
+@media (max-width: 991.98px) {
+  .popup-content {
+    width: 250px;
+  }
+  .input-button {
+    input {
+      width: 160px;
+    }
+  }
+  .btn-ok {
+    width: 30px;
+  }
 }
 
+.sort-list {
+  margin: 0;
+  padding: 0;
+  width: 250px;
+  margin-bottom: 20px;
+}
+.sort-list ul {
+  list-style: none;
+}
+.sort-list a {
+  display: block;
+  padding: 5px 15px 5px 15px;
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: none;
+  text-transform: initial;
+  text-align: center;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.sort-list > ul li {
+  position: relative;
+}
+.btn-sort {
+  background-color: #f5f9ff;
+  color: #333333;
+}
+.btn-sort:hover {
+  background-color: #d7d8d9;
+  color: #333333;
+}
+.sort-list li ul {
+  position: absolute;
+  width: 250px;
+  display: none;
+}
+.sort-list li:hover > ul {
+  display: block;
+  background-color: #ffffff;
+}
 #prd-id{
   position: absolute;
   visibility: hidden;

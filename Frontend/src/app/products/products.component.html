@@ -344,7 +344,15 @@
 </div>
 
 <div class="products-content">
-  <button class="btn btn-sort" (click)="sortByPrice()">Отсортировать по цене</button>
+  <ul class="sort-list">
+    <li><a class="btn sort-list-li">Отсортировать</a>
+      <ul>
+        <li><a class="btn btn-sort sort-link" (click)="sortByPrice()">Цена</a></li>
+        <li><a class="btn btn-sort sort-link" (click)="sortByPrice()">Категория</a></li>
+        <li><a class="btn btn-sort sort-link" (click)="sortByPrice()">Наименование</a></li>
+      </ul>
+    </li>
+  </ul>
   <div  *ngFor="let p of products">
 
     <div class="product">
@@ -358,7 +366,7 @@
         </div>
         <div class="purchase-elements">
           <p class="product-price">{{p.cost}} Р</p>
-          <button class="btn btn-add-to-basket" (click)="visible=true; idL = p.id">Добавить в корозину</button>
+          <button *ngIf="!visible" class="btn btn-add-to-basket" (click)="visible=true; idL = p.id">Добавить в корозину</button>
           <div *ngIf="visible && p.id == idL" class="popup-window-cntnr">
             <div class="popup-window">
               <div class="popup-content">
