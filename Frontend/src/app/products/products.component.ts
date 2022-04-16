@@ -60,9 +60,20 @@ export class ProductsComponent implements OnInit {
     });
     this.amount = 1
   }
-  sortByPrice() {
-    this.productsService.getProducts(this.price).subscribe(data => {this.products = deserializeArray(Product, <string>data.body)
-
+  sortByPrice(price:string) {
+    this.productsService.getProducts(price).subscribe(data => {this.products = deserializeArray(Product, <string>data.body)
+    })
+  }
+  sortByName(name:string) {
+    this.productsService.getProducts(name).subscribe(data => {this.products = deserializeArray(Product, <string>data.body)
+    })
+  }
+  sortByQuantity(quantity:string) {
+    this.productsService.getProducts(quantity).subscribe(data => {this.products = deserializeArray(Product, <string>data.body)
+    })
+  }
+  showUpperClothe(category:string){
+    this.productsService.getProductsByCategory(category).subscribe(data => {this.products = deserializeArray(Product, <string>data.body)
     })
   }
 }

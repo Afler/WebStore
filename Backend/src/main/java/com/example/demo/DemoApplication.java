@@ -50,8 +50,8 @@ public class DemoApplication {
             userService.saveUser(user);
             userService.saveUser(new User(null, "user2", "pass2", "user2@email.com"));
 
-            Product product1 = new Product(null, "Футболка", 490, "Цвет: красный\nМатериал: хлопок 100%\nРазмеры: xs, s, m, l, xl\nВ наличии: 10\n", 10, "https://www.sportkult.ru/res/shop/goods/192466_1430_Polo_Shirt_Pique_Classic_F_0.jpg", "Верхняя Одежда");
-            Product product2 = new Product(null, "Джинсы", 1990, "Цвет: синий\nМатериал: хлопок 90%, полиэстер10%\nРазмеры: xs, s, m, l, xl\nВ наличии: 20\n", 20, "https://www.partner-moto.ru/media/610/61063.jpg", "Нижняя Одежда");
+            Product product1 = new Product(null, "Футболка", 490, "Цвет: красный\nМатериал: хлопок 100%\nРазмеры: xs, s, m, l, xl\nВ наличии: 10\n", 10, "https://www.sportkult.ru/res/shop/goods/192466_1430_Polo_Shirt_Pique_Classic_F_0.jpg", "Верхняя одежда");
+            Product product2 = new Product(null, "Джинсы", 1990, "Цвет: синий\nМатериал: хлопок 90%, полиэстер10%\nРазмеры: xs, s, m, l, xl\nВ наличии: 20\n", 20, "https://www.partner-moto.ru/media/610/61063.jpg", "Нижняя одежда");
 
             productRepository.save(product1);
             productRepository.save(product2);

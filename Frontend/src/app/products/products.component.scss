@@ -178,6 +178,12 @@
 .product-description {
   margin: 0 0 15px 0;
   font-size: 18px;
+  resize: none;
+  background-color: #fffdf5;
+  height: 120px;
+  border: 0 solid;
+  font-family: "Rubik";
+  line-height: 25px;
 }
 .navigation-elements {
   display: flex;
@@ -369,9 +375,24 @@
   cursor: pointer;
   transition: all 0.3s ease;
 }
+
 .sort-list > ul li {
   position: relative;
 }
+.sort-list li ul {
+  position: absolute;
+  min-width: 100px;
+  display: none;
+}
+.sort-list li:hover > ul {
+  display: block;
+}
+.sort-list li > ul li ul {
+  position: absolute;
+  right: -157px;
+  top: 0px;
+}
+
 .btn-sort {
   background-color: #f5f9ff;
   color: #333333;
@@ -380,14 +401,35 @@
   background-color: #d7d8d9;
   color: #333333;
 }
-.sort-list li ul {
-  position: absolute;
-  width: 250px;
-  display: none;
+.btn-sort-2 {
+  background-color: #c7dcfc;
+  position: relative;
+  top: 0px;
+  color: #333333;
 }
-.sort-list li:hover > ul {
-  display: block;
-  background-color: #ffffff;
+.btn-sort-2:hover {
+  background-color: #7fb5f1;
+  color: #333333;
+}
+.btn-sort-3 {
+  background-color: #c7dcfc;
+  position: relative;
+  top: 33px;
+  color: #333333;
+}
+.btn-sort-3:hover {
+  background-color: #7fb5f1;
+  color: #333333;
+}
+.btn-sort-4 {
+  background-color: #c7dcfc;
+  position: relative;
+  top: 67px;
+  color: #333333;
+}
+.btn-sort-4:hover {
+  background-color: #7fb5f1;
+  color: #333333;
 }
 #prd-id{
   position: absolute;

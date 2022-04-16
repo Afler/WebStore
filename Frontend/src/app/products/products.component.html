@@ -2,7 +2,7 @@
   <div class="categories">
     <nav class="dropdown-menu">
       <ul class="first-list">
-        <li><a href="#" class="first-level-link"><span class="first-level"></span>Верхняя одежда</a>
+        <li><a class="first-level-link" (click)="showUpperClothe('Верхняя одежда')"><span class="first-level"></span>Верхняя одежда</a>
           <ul class="second-list">
             <li><a href="#" class="second-level-link">Размер</a>
               <ul class="third-list">
@@ -347,10 +347,25 @@
   <ul class="sort-list">
     <li><a class="btn sort-list-li">Отсортировать</a>
       <ul>
-        <li><a class="btn btn-sort sort-link" (click)="sortByPrice()">Цена</a></li>
-        <li><a class="btn btn-sort sort-link" (click)="sortByPrice()">Категория</a></li>
-        <li><a class="btn btn-sort sort-link" (click)="sortByPrice()">Наименование</a></li>
-      </ul>
+        <li><a class="btn btn-sort sort-link">Цена</a>
+          <ul>
+            <li><a class="btn btn-sort-2" (click)="sortByPrice('priceAsc')">Возрастание</a></li>
+            <li><a class="btn btn-sort-2" (click)="sortByPrice('priceDesc')">Убывание</a></li>
+          </ul>
+        </li>
+        <li><a class="btn btn-sort sort-link">Наименование</a>
+          <ul>
+            <li><a class="btn btn-sort-3" (click)="sortByName('nameAsc')">Возрастание</a></li>
+            <li><a class="btn btn-sort-3" (click)="sortByName('nameDesc')">Убывание</a></li>
+          </ul>
+        </li>
+        <li><a class="btn btn-sort sort-link">Количество</a>
+          <ul>
+            <li><a class="btn btn-sort-4" (click)="sortByQuantity('countAsc')">Возрастание</a></li>
+            <li><a class="btn btn-sort-4" (click)="sortByQuantity('countDesc')">Убывание</a></li>
+          </ul>
+        </li>
+        </ul>
     </li>
   </ul>
   <div  *ngFor="let p of products">
@@ -359,7 +374,7 @@
       <img [src]="p.image" alt="Картинка" class="product-image">
     <div class="product-elements">
       <h2 class="product-title">{{p.name}}</h2>
-      <p class="product-description">{{p.description}}</p>
+      <textarea class="product-description" disabled="disabled" style="overflow:hidden">{{p.description}}</textarea>
       <div class="navigation-elements">
         <div class="edit-element">
 <!--          <button *ngIf="usersService.users[0].admin" [routerLink]="['/prod', p.id]" class="btn btn-edit">Редактировать</button>-->

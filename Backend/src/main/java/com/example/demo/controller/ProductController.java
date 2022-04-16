@@ -49,7 +49,7 @@ public class ProductController {
     }
 
     @GetMapping("/getProducts")
-    public List<Product> getProducts(@RequestParam Optional<String> sortType) {
+    public List<Product> getProducts(@RequestParam Optional<String> sortType, @RequestParam Optional<String> category) {
         if (sortType.isPresent() && sortType.get().equals("priceAsc")) {
             return productService.sortProductsByPriceAsc(productService.getAllProducts());
         } else if (sortType.isPresent() && sortType.get().equals("priceDesc")) {
@@ -62,6 +62,8 @@ public class ProductController {
             return productService.sortProductsByCountAsc(productService.getAllProducts());
         } else if (sortType.isPresent() && sortType.get().equals("countDesc")) {
             return productService.sortProductsByCountDesc(productService.getAllProducts());
+        } else if (category.isPresent()) {
+            return productService.getProductsByCategory(category.get());
         }
         return productService.getAllProducts();
     }
