@@ -1,10 +1,7 @@
 package com.example.demo.entity;
 
 import com.example.demo.dto.NewUserDTO;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -14,7 +11,8 @@ import static javax.persistence.FetchType.EAGER;
 
 @Entity
 @Builder
-@Data
+@Getter
+@Setter
 @Table(name = "user_table")
 @AllArgsConstructor
 @NoArgsConstructor
