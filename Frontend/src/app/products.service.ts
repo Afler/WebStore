@@ -23,7 +23,7 @@ export class ProductsService {
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + this.cookieService.get('access_token')
     })
-    return this.http.post<Product>(API_URL + '/product/save', product, {headers: headers});
+    return this.http.post(API_URL + '/product/save?product=', product, {headers: headers});
   }
 
   addProductToBasket(id: number, amount: number) {
